@@ -1,0 +1,75 @@
+/*
+task 分配任务  每个任务都需要保存下来
+
+引入文件，会把这个引入的文件执行一次   创建命令  放在mygulp里
+
+run 命令行控制程序   ？？为什么不能早放  info[name]()
+延时执行 正常线程走完执行 /process.nextTick(function(){}) 一样
+
+
+1.找到源头
+2.对源头数据处理
+3.插件^
+4.目的地在什么地方dest
+
+through.readObj....push 对象
+
+=========================
+*.js处理
+如果nodejs能调用原生的命令   shell语句  子程序实现
+命令：
+find *.js (linux系统的) 查找
+mkdir  a  增加
+rmdir  a  删除
+fs.里也可以增加删除，但是不支持路径创建，只能一步一步创建 先a  再a/b
+mkdir -p a/b/c   路径方式创建目录(linux系统)
+
+ls观察当前目录下的文件(linux系统)
+
+ls   --listshow
+ls  -a     所有当前和上级
+
+子进程：
+--------
+Child process
+
+var spawn=require("child_process").spawn;
+var ls=spawn("ls","-a")         进程
+ls.stdout.on("data",fun(data){data})
+
+--------
+exec
+ var exec=require("child_process").exec;
+exec("ls -a",function(error,data){})
+
+--------
+shelljs
+
+安装这个包
+var shell=require("shellejs")
+shell.mkdir("-p","a/b/c")
+对不同系统做过兼容
+
+-----------
+=====================
+
+
+ src 源   factory处理路径   返回一个函数，接收路径返回路径
+ fullname=path shell
+arr
+
+
+ dest 目的地
+ 目录是否存在
+fs.statSync
+
+
+
+ watch 监听
+
+ fs.watch(type,file)
+ 路径问题，用包：gaze,凝视
+
+写插件
+
+  */
